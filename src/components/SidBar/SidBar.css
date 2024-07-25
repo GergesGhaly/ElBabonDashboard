@@ -1,0 +1,143 @@
+/* Handel side bar in mobile screens */
+@media (max-width: 600px) {
+  .sid-bar {
+    position: absolute;
+    top: 0px;
+    display: none;
+    transition: all 0.4s ease;
+  }
+
+  .sid-bar.active {
+    position: absolute;
+    top: 50px;
+    display: flex;
+  }
+
+  .sid-bar .logo {
+    margin-top: 10px;
+  }
+}
+
+.sid-bar .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  align-self: center;
+}
+
+.sid-bar .list-wraper {
+  width: 100%;
+}
+
+.sid-bar .list-wraper .list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 24px;
+}
+
+/* .sid-bar .list-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+} */
+
+.sid-bar .list-item {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sid-bar .icon-text {
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.sid-bar .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.sid-bar .text {
+  font-size: 16px;
+  user-select: none;
+  color: #ffffff;
+  font-family: "Frutiger LT Arabic", sans-serif;
+}
+
+.sid-bar .list-item:hover,
+.sid-bar .list-item.active {
+  background-color: #b65535;
+}
+
+.sid-bar .sub-list-item {
+  display: flex;
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, border 0.3s ease, color 0.3s ease;
+  padding: 8px 16px;
+  width: 100%;
+}
+
+.sid-bar .sub-list-item:hover,
+.sid-bar .sub-list-item.active {
+  background-color: #fdfffb;
+  border: 1px solid #dc9c87;
+}
+
+.sub-list-item:hover .text,
+.sub-list-item.active .text {
+  color: #b65535;
+}
+
+/* Set sidebar reports sub-items  for tabelt screens */
+@media (min-width: 600px) and (max-width: 900px) {
+  .sid-bar.active {
+    position: absolute;
+    top: 50px;
+    display: flex;
+    width: 70px; /* Sidebar width for small screens */
+  }
+
+  /* Customize AccordionDetails width for small screens */
+  .sid-bar .MuiAccordionDetails-root {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    width: 200px;
+    /* height: 100px; */
+    right: 55px; /* Ensure it appears next to the sidebar */
+    top: 15px;
+    z-index: 1; /* Ensure it appears above other elements */
+    border-radius: 8px;
+  }
+
+  .sid-bar .MuiAccordionSummary-root {
+    position: relative;
+  }
+
+  .sid-bar .MuiAccordionDetails-root .list-Accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Customize sub-list-item width for small screens */
+  .sid-bar .sub-list-item {
+    white-space: nowrap; /* Prevent text wrapping */
+    background-color: #1d1c1b; /* Same background color as sidebar */
+    padding: 8px;
+    border-radius: 4px;
+  }
+}

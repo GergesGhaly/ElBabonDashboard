@@ -1,0 +1,18 @@
+
+.loginFormInpt {
+  display: flex;
+  height: 33.6px;
+  width: 344px;
+  margin-top: 80px;
+  border: none;
+  outline: none;
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+}
+
+@media (max-width: 800px) {
+  .loginFormInpt {
+    width: 100%;
+  }
+}

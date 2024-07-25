@@ -1,0 +1,12 @@
+{
+  "welcome": "Welcome",
+  "description": "This is an example description in English.",
+  "signin": " Sign In",
+  "dashboard": "Dashboard",
+  "email": " E-mail",
+  "password": "Password ",
+  "forgot your password ?": "Forgot your password ?",
+  "remember me":"Remember me",
+  "enter email":"Enter your email address",
+  "enter password":"Enter your password"
+}
