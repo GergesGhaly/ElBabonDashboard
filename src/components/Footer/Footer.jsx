@@ -1,8 +1,12 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import { Box, Link } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+
+  const { t, i18n } = useTranslation();
+
   return (
     <Box
       sx={{
@@ -28,7 +32,8 @@ const Footer = () => {
           fontFamily: "Frutiger LT Arabic, sans-serif",
         }}
       >
-        المركز الوطنى لتنميه الحياه الفطرية &copy; 2024
+        {t("national center for wildlife development")}
+        &copy; 2024
       </Typography>
       <Link
         href="https://www.example.com"
@@ -44,7 +49,7 @@ const Footer = () => {
           fontFamily: "Frutiger LT Arabic, sans-serif",
         }}
       >
-        موقع المركز
+      {t("center's site")}
       </Link>
     </Box>
   );

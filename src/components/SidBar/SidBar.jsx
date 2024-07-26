@@ -16,10 +16,14 @@ import HistoryIcon from "../../assets/HistoryIcon.svg";
 import ProfileIcon from "../../assets/ProfileIcon.svg";
 import LogOutIcon from "../../assets/LogOutIcon.svg";
 import { Box, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const SidBar = ({ isMenuVisible }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeSubIndex, setActiveSubIndex] = useState(null);
+
+  //i18
+  const { t, i18n } = useTranslation();
 
   const handleItemClick = (index) => {
     setActiveIndex(index);
@@ -32,16 +36,15 @@ const SidBar = ({ isMenuVisible }) => {
     setActiveIndex(null);
   };
 
-
   const menuItems = [
-    { icon: HomeIcon, text: "اداره الرئيسية" },
-    { icon: ReportIcon, text: "البلاغات" },
-    { icon: UsersIcon, text: "المستخدمين" },
-    { icon: LocationIcon, text: "المناطق" },
-    { icon: NotifcationIcon, text: "الاشعارات" },
-    { icon: HistoryIcon, text: "سجل النشاطات" },
-    { icon: ProfileIcon, text: "الملف الشخصى" },
-    { icon: LogOutIcon, text: "تسجيل الخروج" },
+    { icon: HomeIcon, text: t("home admin") },
+    { icon: ReportIcon, text: t("reports") },
+    { icon: UsersIcon, text: t("users") },
+    { icon: LocationIcon, text: t("locations") },
+    { icon: NotifcationIcon, text: t("notifications") },
+    { icon: HistoryIcon, text: t("activityLog") },
+    { icon: ProfileIcon, text: t("profile") },
+    { icon: LogOutIcon, text: t("logout") },
   ];
 
   return (
@@ -71,7 +74,7 @@ const SidBar = ({ isMenuVisible }) => {
       <div className="list-wraper">
         <ul className="list">
           {menuItems.map((item, index) =>
-            item.text === "البلاغات" ? (
+            item.text === t("reports") ? (
               <li
                 key={index}
                 className={`list-item ${activeIndex === index ? "active" : ""}`}
@@ -145,7 +148,7 @@ const SidBar = ({ isMenuVisible }) => {
                           }`}
                           onClick={(event) => handleSubItemClick(event, 0)}
                         >
-                          <span className="text">عرض البلاغات</span>
+                          <span className="text">{t("view reports")}</span>
                         </li>
                         <li
                           className={`sub-list-item ${
@@ -153,7 +156,7 @@ const SidBar = ({ isMenuVisible }) => {
                           }`}
                           onClick={(event) => handleSubItemClick(event, 1)}
                         >
-                          <span className="text">اسئلة التقارير</span>
+                          <span className="text">{t("report questions")} </span>
                         </li>
                       </ul>
                     </AccordionDetails>

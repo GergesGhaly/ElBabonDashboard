@@ -29,16 +29,10 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false); // Controls password visibility
-  const [isLanguageArabic, setIsLanguageArabic] = useState(false); // Controls language toggle
 
   //i18
   const { t, i18n } = useTranslation();
 
-  //i18 hiandel langue toggle
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    setIsLanguageArabic(!isLanguageArabic);
-  };
 
   // Handles form submission
   const handleSubmit = (event) => {

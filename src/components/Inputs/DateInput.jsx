@@ -1,24 +1,28 @@
 import { Box } from "@mui/material";
-// import { DesktopDatePicker } from "@mui/x-date-pickers";
-// import dayjs from "dayjs";
 import * as React from "react";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+//DatePickerIcon
+import { ReactComponent as DatePickerIcon } from "../../assets/DatePickerIcon.svg";
 
-export default function DateInput() {
+export default function DateInput({ Placeholder }) {
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        padding: "0px",
+        direction: "ltr",
+      }}
+    >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DemoContainer
-          sx={{
-            direction: "ltr",
+        <DatePicker
+          label={Placeholder}
+          components={{
+            OpenPickerIcon: DatePickerIcon, // يمكنك تغيير الأيقونة هنا
           }}
-          components={["DatePicker"]}
-        >
-          <DatePicker sx={{ textAlign: "end" }} label="الاسم" />
-        </DemoContainer>
+        />
       </LocalizationProvider>
     </Box>
   );

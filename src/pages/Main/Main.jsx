@@ -13,12 +13,12 @@ const Main = () => {
   };
 
   return (
-    <Box>
+    <Box >
       <TopBar
        handleToggle={handleToggle}
       />
       <Home/>
-      <SidBar isMenuVisible={isMenuVisible} />
+      <SidBar  isMenuVisible={isMenuVisible} />
     </Box>
   );
 };

@@ -2,8 +2,11 @@ import { Box, Grid } from "@mui/material";
 import React from "react";
 import SearchInput from "../Inputs/SearchInput";
 import BaseBtn from "../Buttons/BaseBtn";
+import { useTranslation } from "react-i18next";
 
 const HomePageTable = () => {
+  const { t, i18n } = useTranslation();
+
   return (
     <Box>
       <Grid container spacing={3} sx={{ marginTop: "32px" }}>
@@ -14,10 +17,10 @@ const HomePageTable = () => {
 
         {/* العناصر الأخرى */}
         <Grid item xs={6} md={3}>
-          <Box sx={{ backgroundColor: "red" }}>الدور </Box>
+          <Box sx={{ backgroundColor: "red" }}>{t("role")}</Box>
         </Grid>
         <Grid item xs={6} md={3}>
-          <Box sx={{ backgroundColor: "red" }}> الحاله</Box>
+          <Box sx={{ backgroundColor: "red" }}>{t("status")}</Box>
         </Grid>
       </Grid>
 
@@ -52,7 +55,7 @@ const HomePageTable = () => {
         </Grid>
         <Grid item xs={12} sm={3} md={3} sx={{ order: { xs: 3, sm: 3 } }}>
           {/* <Box sx={{ backgroundColor: "blue" }}> تصدير</Box> */}
-          <BaseBtn Text={"تصدير"} />
+          <BaseBtn Text={t("export")} />
         </Grid>
       </Grid>
     </Box>

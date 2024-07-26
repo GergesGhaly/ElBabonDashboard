@@ -15,53 +15,33 @@ const LanguegeToggleBtn = () => {
     setIsLanguageArabic(!isLanguageArabic);
   };
 
-
   return (
-    <Box>
-      {isLanguageArabic ? (
-        <Box
-          sx={{ display: "flex", gap: "3px", cursor: "pointer" }}
-          onClick={() => changeLanguage("ar")}
+    
+      <Box
+        sx={{ display: "flex", gap: "3px", cursor: "pointer" }}
+        onClick={
+          isLanguageArabic
+            ? () => changeLanguage("ar")
+            : () => changeLanguage("en")
+        }
+      >
+        <img src={languageIcon} alt="" />
+        <Typography
+          sx={{
+            fontSize: "16px",
+            fontWeight: "400",
+            lineHeight: "25.6px",
+            color: "#B65535",
+            userSelect: "none",
+            display: { md: "flex", xs: "none" },
+          }}
+          variant="body1"
+          color="initial"
         >
-          <img src={languageIcon} alt="" />
-          <Typography
-            sx={{
-              fontSize: "16px",
-              fontWeight: "400",
-              lineHeight: "25.6px",
-              color: "#B65535",
-              userSelect: "none",
-              display: { md: "flex", xs: "none" },
-            }}
-            variant="body1"
-            color="initial"
-          >
-            العربيه
-          </Typography>
-        </Box>
-      ) : (
-        <Box
-          sx={{ display: "flex", gap: "3px", cursor: "pointer" }}
-          onClick={() => changeLanguage("en")}
-        >
-          <img src={languageIcon} alt="" />
-          <Typography
-            sx={{
-              fontSize: "16px",
-              fontWeight: "400",
-              lineHeight: "25.6px",
-              color: "#B65535",
-              userSelect: "none",
-              display: { md: "flex", xs: "none" },
-            }}
-            variant="body1"
-            color="initial"
-          >
-            English
-          </Typography>
-        </Box>
-      )}
-    </Box>
+          {isLanguageArabic ? " العربيه" : "English"}
+        </Typography>
+      </Box>
+   
   );
 };
 

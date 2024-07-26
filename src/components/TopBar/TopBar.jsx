@@ -19,20 +19,11 @@ import { useTranslation } from "react-i18next";
 import LanguegeToggleBtn from "../Buttons/LanguegeToggleBtn";
 
 function TopBar({ handleToggle }) {
-  const [isLanguageArabic, setIsLanguageArabic] = useState(false); // Controls language toggle
 
   //i18
   const { t, i18n } = useTranslation();
 
-  //i18 hiandel langue toggle
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    setIsLanguageArabic(!isLanguageArabic);
-  };
 
-  // React.useEffect(() => {
-  //   document.body.dir = i18n.language === "ar" ? "rtl" : "ltr";
-  // }, [i18n.language]);
 
   return (
     <AppBar
@@ -59,6 +50,8 @@ function TopBar({ handleToggle }) {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            padding:"0px !important"
+
           }}
         >
           <Box
@@ -141,50 +134,7 @@ function TopBar({ handleToggle }) {
             </Box>
           </Box>
 
-          {/* //languge Toggle */}
-          {/* {isLanguageArabic ? (
-            <Box
-              sx={{ display: "flex", gap: "3px", cursor: "pointer" }}
-              onClick={() => changeLanguage("ar")}
-            >
-              <img src={languageIcon} alt="" />
-              <Typography
-                sx={{
-                  fontSize: "16px",
-                  fontWeight: "400",
-                  lineHeight: "25.6px",
-                  color: "#B65535",
-                  userSelect: "none",
-                  display: { md: "flex", xs: "none" },
-                }}
-                variant="body1"
-                color="initial"
-              >
-                العربيه
-              </Typography>
-            </Box>
-          ) : (
-            <Box
-              sx={{ display: "flex", gap: "3px", cursor: "pointer" }}
-              onClick={() => changeLanguage("en")}
-            >
-              <img src={languageIcon} alt="" />
-              <Typography
-                sx={{
-                  fontSize: "16px",
-                  fontWeight: "400",
-                  lineHeight: "25.6px",
-                  color: "#B65535",
-                  userSelect: "none",
-                  display: { md: "flex", xs: "none" },
-                }}
-                variant="body1"
-                color="initial"
-              >
-                English
-              </Typography>
-            </Box>
-          )} */}
+        
           <LanguegeToggleBtn/>
         </Toolbar>
       </Container>
