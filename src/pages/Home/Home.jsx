@@ -13,6 +13,12 @@ import HomePageTable from "../../components/Tables/HomePageTable";
 import PageTitle from "../../components/PageTitle";
 import { useTranslation } from "react-i18next";
 
+//Total Icon
+import NoteIcon from "../../assets/NoteIcon.svg";
+import MicIcon from "../../assets/MicIcon.svg";
+import SearchIcon from "../../assets/SearchIcon.svg";
+import ReportsNoteIcon from "../../assets/ReportsNoteIcon.svg";
+
 const Home = () => {
   //i18
   const { t, i18n } = useTranslation();
@@ -52,13 +58,7 @@ const Home = () => {
             <RegionInput />
           </Box>
         </Grid>
-        <Grid
-          sx={{ paddingRight: "0 !important", paddingLeft: "0 !important" }}
-          item
-          xs={12}
-          sm={3}
-          md={1.8}
-        >
+        <Grid item xs={12} sm={3} md={1.8}>
           <BaseBtn
             Text={t("filter results")}
             Style={{
@@ -84,21 +84,78 @@ const Home = () => {
       </Grid>
       {/* Statistics */}
       <Grid container spacing={3} sx={{ marginTop: "32px" }}>
-        <Grid item xs={12} sm={12} md={4}>
+        <Grid
+          sx={{
+            paddingRight: { md: "0px !important" },
+            paddingLeft: { md: "5px !important" },
+          }}
+          item
+          xs={12}
+          sm={12}
+          md={4}
+        >
           <TheBest />
         </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <Total Title={t("total reports")} />
+        <Grid
+          sx={{
+            paddingRight: { md: "0px !important" },
+            paddingLeft: { md: "5px !important" },
+          }}
+          item
+          xs={6}
+          sm={3}
+          md={2}
+        >
+          <Total Number={27} Icon={MicIcon} Title={t("total reports")} />
         </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <Total Title={t("total tasks")} />
+        <Grid
+          sx={{
+            paddingRight: { md: "0px !important" },
+            paddingLeft: { md: "5px !important" },
+          }}
+          item
+          xs={6}
+          sm={3}
+          md={2}
+        >
+          <Total Number={12} Icon={NoteIcon} Title={t("total tasks")} />
         </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <Total Title={t("total researchers")} />
+        <Grid
+          sx={{
+            paddingRight: { md: "0px !important" },
+            paddingLeft: { md: "5px !important" },
+          }}
+          item
+          xs={6}
+          sm={3}
+          md={2}
+        >
+          <Total
+            sx={{
+              paddingRight: { md: "0px !important" },
+              paddingLeft: { md: "5px !important" },
+            }}
+            Number={17}
+            Icon={SearchIcon}
+            Title={t("total researchers")}
+          />
         </Grid>
 
-        <Grid item xs={6} sm={3} md={2}>
-          <Total Title= {t("completed reports")} />
+        <Grid
+          sx={{
+            paddingRight: { md: "0px !important" },
+            paddingLeft: { md: "20px !important" },
+          }}
+          item
+          xs={6}
+          sm={3}
+          md={2}
+        >
+          <Total
+            Number={18}
+            Icon={ReportsNoteIcon}
+            Title={t("completed reports")}
+          />
         </Grid>
       </Grid>
 
