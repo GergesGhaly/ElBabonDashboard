@@ -18,6 +18,28 @@ export default function DateInput({ Placeholder }) {
     >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
+          sx={{
+            backgroundColor: "#FFFFFF",
+            border: "1px solid #E0E4EA",
+            borderRadius: "8px",
+            "& label": {
+              fontSize: "14px",
+              fontWeight: "700",
+              color: "#54514E",
+              fontFamily: "Frutiger LT Arabic",
+              lineHeight: "22.4px",
+            },
+            "& .MuiOutlinedInput-notchedOutline": {
+              border: "none",
+            },
+
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              border: "none",
+            },
+            "& label.Mui-focused": {
+              color: "#B65535",
+            },
+          }}
           label={Placeholder}
           components={{
             OpenPickerIcon: DatePickerIcon, // يمكنك تغيير الأيقونة هنا

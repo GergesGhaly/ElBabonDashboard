@@ -11,6 +11,7 @@
     position: absolute;
     top: 50px;
     display: flex;
+    z-index: 99;
   }
 
   .sid-bar .logo {
@@ -37,7 +38,6 @@
   width: 100%;
   gap: 24px;
 }
-
 
 .sid-bar .list-item {
   display: flex;

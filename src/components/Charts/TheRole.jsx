@@ -22,12 +22,14 @@ const TheRole = () => {
   return (
     <Box
       sx={{
+        width: "100%",
         backgroundColor: "#FBF4F2",
         padding: "16px 10px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        borderRadius: "8px",
       }}
     >
       <Typography
@@ -37,6 +39,7 @@ const TheRole = () => {
           lineHeight: "36.8px",
           textAlign: "start",
           fontFamily: "Frutiger LT Arabic",
+          alignSelf: "self-start",
         }}
       >
         {t("therole")}
@@ -49,7 +52,7 @@ const TheRole = () => {
             arcLabelMinAngle: 0,
             cx: 100,
             cy: 100,
-            data,
+            data: data.map((item) => ({ value: item.value })),
           },
         ]}
         sx={{
@@ -77,7 +80,7 @@ const TheRole = () => {
             sx={{
               display: "flex",
               alignItems: "center",
-              // padding: "3px",
+              marginRight: "8px",
             }}
           >
             <Box
@@ -94,9 +97,10 @@ const TheRole = () => {
                 fontWeight: "400",
                 color: "#54514E",
                 fontFamily: "Frutiger LT Arabic",
+                marginLeft: "5px",
               }}
             >
-              {item.label}({item.value}%)
+              {item.label} ({item.value}%)
             </Typography>
           </Box>
         ))}

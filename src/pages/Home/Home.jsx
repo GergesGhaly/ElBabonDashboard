@@ -1,27 +1,209 @@
 import { Box, Grid, Pagination, Typography } from "@mui/material";
 import React from "react";
 import Footer from "../../components/Footer/Footer";
-import Mission from "../../components/Charts/Mission";
-import ActiveAreas from "../../components/Charts/ActiveAreas";
 import TheRole from "../../components/Charts/TheRole";
 import TheBest from "../../components/Statistics/TheBest";
 import Total from "../../components/Statistics/Total";
 import DateInput from "../../components/Inputs/DateInput";
 import BaseBtn from "../../components/Buttons/BaseBtn";
-import RegionInput from "../../components/Inputs/RegionInput";
+import RegionInput from "../../components/Inputs/Basicselect";
 import HomePageTable from "../../components/Tables/HomePageTable";
 import PageTitle from "../../components/PageTitle";
 import { useTranslation } from "react-i18next";
-
 //Total Icon
 import NoteIcon from "../../assets/NoteIcon.svg";
 import MicIcon from "../../assets/MicIcon.svg";
 import SearchIcon from "../../assets/SearchIcon.svg";
 import ReportsNoteIcon from "../../assets/ReportsNoteIcon.svg";
+import ChartsBars from "../../components/Charts/ChartsBase";
+import Basicselect from "../../components/Inputs/Basicselect";
 
 const Home = () => {
   //i18
   const { t, i18n } = useTranslation();
+
+  //DumyData for active Areav Copmpnent
+  const dataset = [
+    {
+      london: 59,
+      paris: 57,
+      newYork: 86,
+      seoul: 21,
+      month: "Jan",
+    },
+    {
+      london: 50,
+      paris: 52,
+      newYork: 78,
+      seoul: 28,
+      month: "Feb",
+    },
+    {
+      london: 47,
+      paris: 53,
+      newYork: 106,
+      seoul: 41,
+      month: "Mar",
+    },
+    {
+      london: 54,
+      paris: 56,
+      newYork: 92,
+      seoul: 73,
+      month: "Apr",
+    },
+    {
+      london: 57,
+      paris: 69,
+      newYork: 92,
+      seoul: 99,
+      month: "May",
+    },
+    {
+      london: 60,
+      paris: 63,
+      newYork: 103,
+      seoul: 144,
+      month: "June",
+    },
+    {
+      london: 59,
+      paris: 60,
+      newYork: 105,
+      seoul: 319,
+      month: "July",
+    },
+    {
+      london: 65,
+      paris: 60,
+      newYork: 106,
+      seoul: 249,
+      month: "Aug",
+    },
+    {
+      london: 51,
+      paris: 51,
+      newYork: 95,
+      seoul: 131,
+      month: "Sept",
+    },
+    {
+      london: 60,
+      paris: 65,
+      newYork: 97,
+      seoul: 55,
+      month: "Oct",
+    },
+    {
+      london: 67,
+      paris: 64,
+      newYork: 76,
+      seoul: 48,
+      month: "Nov",
+    },
+    {
+      london: 61,
+      paris: 70,
+      newYork: 103,
+      seoul: 25,
+      month: "Dec",
+    },
+  ];
+
+  //DumyData for active Areav Copmpnent
+  const MissionDataset = [
+    {
+      london: 59,
+      paris: 57,
+      newYork: 86,
+      seoul: 21,
+      month: "Jan",
+    },
+    {
+      london: 50,
+      paris: 52,
+      newYork: 78,
+      seoul: 28,
+      month: "Feb",
+    },
+    {
+      london: 47,
+      paris: 53,
+      newYork: 106,
+      seoul: 41,
+      month: "Mar",
+    },
+    {
+      london: 54,
+      paris: 56,
+      newYork: 92,
+      seoul: 73,
+      month: "Apr",
+    },
+    {
+      london: 57,
+      paris: 69,
+      newYork: 92,
+      seoul: 99,
+      month: "May",
+    },
+    {
+      london: 60,
+      paris: 63,
+      newYork: 103,
+      seoul: 144,
+      month: "June",
+    },
+    {
+      london: 59,
+      paris: 60,
+      newYork: 105,
+      seoul: 319,
+      month: "July",
+    },
+    {
+      london: 65,
+      paris: 60,
+      newYork: 106,
+      seoul: 249,
+      month: "Aug",
+    },
+    {
+      london: 51,
+      paris: 51,
+      newYork: 95,
+      seoul: 131,
+      month: "Sept",
+    },
+    {
+      london: 60,
+      paris: 65,
+      newYork: 97,
+      seoul: 55,
+      month: "Oct",
+    },
+    {
+      london: 67,
+      paris: 64,
+      newYork: 76,
+      seoul: 48,
+      month: "Nov",
+    },
+    {
+      london: 61,
+      paris: 70,
+      newYork: 103,
+      seoul: 25,
+      month: "Dec",
+    },
+  ];
+
+  const Options = [
+    { label: "Option 1", value: "Option 1" },
+    { label: "Option 2", value: "Option 2" },
+    { label: "Option 3", value: "Option 3" },
+    { label: "Option 4", value: "Option 4" },
+  ];
 
   return (
     <Box
@@ -55,7 +237,7 @@ const Home = () => {
         </Grid>
         <Grid item xs={12} sm={3} md={3.2}>
           <Box sx={{ width: "100%" }}>
-            <RegionInput />
+            <Basicselect PlaceHolder={t("region")} Options={Options} />
           </Box>
         </Grid>
         <Grid item xs={12} sm={3} md={1.8}>
@@ -162,10 +344,10 @@ const Home = () => {
       {/* Charts */}
       <Grid container spacing={3} sx={{ marginTop: "32px" }}>
         <Grid item xs={12} sm={6} md={4}>
-          <Mission />
+          <ChartsBars Title={t("missions")} dataset={MissionDataset} />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <ActiveAreas />
+          <ChartsBars Title={t("active areas")} dataset={dataset} />
         </Grid>
         <Grid item xs={12} sm={12} md={4}>
           <TheRole />
