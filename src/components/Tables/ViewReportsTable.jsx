@@ -1,3 +1,67 @@
+// import { Box, Grid } from "@mui/material";
+// import React from "react";
+// import BaseBtn from "../Buttons/BaseBtn";
+// import { useTranslation } from "react-i18next";
+
+// const HomePageTable = () => {
+//   const { t, i18n } = useTranslation();
+
+//   return (
+//     <Box>
+//       <Grid container spacing={3} sx={{ marginTop: "32px" }}>
+//         {/* العنصر الأول */}
+//         <Grid item xs={12} md={6}>
+//           <SearchInput />
+//         </Grid>
+
+//         {/* العناصر الأخرى */}
+//         <Grid item xs={6} md={3}>
+//           <Box sx={{ backgroundColor: "red" }}>{t("role")}</Box>
+//         </Grid>
+//         <Grid item xs={6} md={3}>
+//           <Box sx={{ backgroundColor: "red" }}>{t("status")}</Box>
+//         </Grid>
+//       </Grid>
+
+//       {/* Table body*/}
+//       <Box
+//         sx={{
+//           marginTop: "12px",
+//           width: "100%",
+//           minHeight: "250px",
+//           backgroundColor: "green",
+//         }}
+//       ></Box>
+//       {/* Table Footer*/}
+
+//       <Grid
+//         container
+//         spacing={3}
+//         sx={{
+//           marginTop: "12px",
+//           width: "100%",
+//           minHeight: "50px",
+//           display: "flex",
+//           justifyContent: "center",
+//           flexWrap: "wrap",
+//         }}
+//       >
+//         <Grid item xs={12} sm={3} md={3} sx={{ order: { xs: 2, sm: 1 } }}>
+//           <Box sx={{ backgroundColor: "red" }}>عرض من 0 ال 10 </Box>
+//         </Grid>
+//         <Grid item xs={12} sm={6} md={6} sx={{ order: { xs: 1, sm: 2 } }}>
+//           <Box sx={{ backgroundColor: "green" }}>pagination</Box>
+//         </Grid>
+//         <Grid item xs={12} sm={3} md={3} sx={{ order: { xs: 3, sm: 3 } }}>
+//           {/* <Box sx={{ backgroundColor: "blue" }}> تصدير</Box> */}
+//           <BaseBtn Text={t("export")} />
+//         </Grid>
+//       </Grid>
+//     </Box>
+//   );
+// };
+
+// export default HomePageTable;
 import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -22,20 +86,21 @@ import BaseBtn from "../Buttons/BaseBtn";
 import EportIcon from "../../assets/ExportIcon.svg";
 import ProfileImg from "../../assets/image/Ellipse 598.png";
 import Basicselect from "../Inputs/Basicselect";
+import DateInput from "../Inputs/DateInput";
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
 
 const rows = [
-  createData("ليد ال ضبعان", 35, "مدير النظام", "جديده"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "معطل"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "معطل"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "جديده"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "معطل"),
+  createData("ليد ال ضبعان", 35, " 1-2-2020", "الرياض", "جديده"),
+  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
+  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
+  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
+  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
 ];
 
-export default function BasicTable() {
+export default function ViewReportsTable() {
   const { t, i18n } = useTranslation();
 
   const [page, setPage] = React.useState(0);
@@ -91,17 +156,28 @@ export default function BasicTable() {
     >
       <Grid container spacing={3} sx={{ margin: "16px 0" }}>
         {/* العنصر الأول */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <SearchInput />
         </Grid>
 
         {/* العناصر الأخرى */}
-        <Grid item xs={6} md={3}>
+        <Grid item xs={6} md={2}>
+          <Box>
+            <DateInput Placeholder={t("from")} />
+          </Box>
+        </Grid>
+        <Grid item xs={6} md={2}>
+          <Box>
+            <DateInput Placeholder={t("to")} />
+          </Box>
+        </Grid>
+        <Grid item xs={6} md={2}>
           <Box>
             <Basicselect PlaceHolder={t("role")} Options={Options} />
           </Box>
         </Grid>
-        <Grid item xs={6} md={3}>
+
+        <Grid item xs={6} md={2}>
           <Box>
             <Basicselect PlaceHolder={t("status")} Options={Options} />
           </Box>
@@ -127,14 +203,17 @@ export default function BasicTable() {
 
               <TableCell sx={TableCellStyle} align="right">
                 {" "}
-                تم كتابته
+                مقدم البلاغ
               </TableCell>
               <TableCell sx={TableCellStyle} align="right">
                 {" "}
-                مهام الشهر
+                رقم البلاغ
               </TableCell>
               <TableCell sx={TableCellStyle} align="right">
-                الدور
+                تاريخ البلاغ
+              </TableCell>
+              <TableCell sx={TableCellStyle} align="right">
+                المنطقه
               </TableCell>
               <TableCell sx={TableCellStyle} align="right">
                 الحاله
@@ -180,6 +259,10 @@ export default function BasicTable() {
                 <TableCell sx={TypographStyle} align="right">
                   {row.fat}
                 </TableCell>
+                <TableCell sx={TypographStyle} align="right">
+                  {row.carbs}
+                </TableCell>
+
                 <TableCell
                   sx={{ display: "flex", alignItems: "center" }}
                   align="center"
@@ -188,18 +271,18 @@ export default function BasicTable() {
                     sx={{
                       ...TypographStyle,
                       backgroundColor:
-                        row.carbs === "جديده" ? "#C5FFD1" : "#F1F1F0",
-                      color: row.carbs === "جديده" ? "#49A95E" : "#54514E",
-                      width: "122px",
-
+                        row.protein === "جديده" ? "#C5FFD1" : "#FFE6C0",
+                        color:
+                        row.protein === "جديده" ? "#49A95E" : "#D08C26",
+                        width:"122px",
                       padding: "2px 8px",
                       border: "1px solid",
                       borderRadius: "4px",
                       borderColor:
-                        row.carbs === "جديده" ? "#84F39C" : "#C9C6C4",
+                        row.protein === "جديده" ? "#84F39C" : "#D08C26",
                     }}
                   >
-                    {row.carbs}
+                    {row.protein}
                   </Box>
                 </TableCell>
               </TableRow>

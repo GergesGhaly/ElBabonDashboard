@@ -14,11 +14,14 @@ export default function DateInput({ Placeholder }) {
         justifyContent: "center",
         padding: "0px",
         direction: "ltr",
+        width: "100%",
       }}
     >
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
           sx={{
+            width: "100%",
+
             backgroundColor: "#FFFFFF",
             border: "1px solid #E0E4EA",
             borderRadius: "8px",

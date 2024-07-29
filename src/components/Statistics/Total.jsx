@@ -1,8 +1,11 @@
 import { Avatar, Box } from "@mui/material";
 import React from "react";
 import MicIcon from "../../assets/MicIcon.svg";
+import { useTranslation } from "react-i18next";
 
 const Total = ({ Title, Icon, Number }) => {
+  const { t, i18n } = useTranslation();
+
   return (
     <Box
       sx={{
@@ -91,7 +94,7 @@ const Total = ({ Title, Icon, Number }) => {
           }}
           className="period"
         >
-          اخر 6 أشهر
+          {t("the last 6 months")}
         </Box>
       </Box>
     </Box>

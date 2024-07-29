@@ -115,11 +115,11 @@ const TheBest = ({ Icon }) => {
               color: "#847F7A",
             }}
           >
-            {MissionCount} مهمه
+            {MissionCount} {t("task")}
           </Typography>
 
           <BaseBtn
-            Text={"عرض المهام"}
+            Text={t("tasks display")}
             Style={{
               display: "flex",
               width: "142px",

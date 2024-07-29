@@ -22,20 +22,19 @@ import BaseBtn from "../Buttons/BaseBtn";
 import EportIcon from "../../assets/ExportIcon.svg";
 import ProfileImg from "../../assets/image/Ellipse 598.png";
 import Basicselect from "../Inputs/Basicselect";
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+import Cell from "../Inputs/Switch";
+//Icons
+import PlusIcon from "../../assets/PlusIcon.svg";
+function createData(name, calories, fat, carbs) {
+  return { name, calories, fat, carbs };
 }
 
 const rows = [
-  createData("ليد ال ضبعان", 35, "مدير النظام", "جديده"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "معطل"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "معطل"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "جديده"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "معطل"),
+  createData("تقرير رقم لمتابعه الباحثين", "ليد ال ضبعان", 35, "مدير النظام"),
+  createData("تقرير رقم لمتابعه الباحثين", "ليد ال ضبعان", 35, "مدير النظام"),
 ];
 
-export default function BasicTable() {
+export default function ReportQuestionsTable() {
   const { t, i18n } = useTranslation();
 
   const [page, setPage] = React.useState(0);
@@ -83,7 +82,7 @@ export default function BasicTable() {
   return (
     <Box
       sx={{
-        marginTop: "32px",
+        marginTop: "16px",
         padding: "16px",
         backgroundColor: "#F9F9F9",
         borderRadius: "8px",
@@ -91,17 +90,12 @@ export default function BasicTable() {
     >
       <Grid container spacing={3} sx={{ margin: "16px 0" }}>
         {/* العنصر الأول */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={8}>
           <SearchInput />
         </Grid>
 
         {/* العناصر الأخرى */}
-        <Grid item xs={6} md={3}>
-          <Box>
-            <Basicselect PlaceHolder={t("role")} Options={Options} />
-          </Box>
-        </Grid>
-        <Grid item xs={6} md={3}>
+        <Grid item xs={4}>
           <Box>
             <Basicselect PlaceHolder={t("status")} Options={Options} />
           </Box>
@@ -122,22 +116,23 @@ export default function BasicTable() {
             >
               <TableCell sx={TableCellStyle} align="right">
                 {" "}
-                م
-              </TableCell>
-
-              <TableCell sx={TableCellStyle} align="right">
-                {" "}
-                تم كتابته
+                م{" "}
               </TableCell>
               <TableCell sx={TableCellStyle} align="right">
                 {" "}
-                مهام الشهر
+                عنوان التقارير{" "}
               </TableCell>
               <TableCell sx={TableCellStyle} align="right">
-                الدور
+                {" "}
+                تم كتابته{" "}
               </TableCell>
               <TableCell sx={TableCellStyle} align="right">
-                الحاله
+                {" "}
+                عدد الاسئله{" "}
+              </TableCell>
+              <TableCell sx={TableCellStyle} align="right">
+                {" "}
+                التحكم{" "}
               </TableCell>
             </TableRow>
           </TableHead>
@@ -145,61 +140,91 @@ export default function BasicTable() {
             {displayedRows.map((row) => (
               <TableRow
                 key={row.name}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 0 },
+                }}
               >
-                <TableCell sx={TypographStyle} component="th" align="right">
+                <TableCell
+                  sx={{
+                    ...TypographStyle,
+                    minHeight: "72px", // تأكد من تطابق الارتفاع مع ارتفاع الصف
+                  }}
+                  align="right"
+                >
                   0
                 </TableCell>
-
-                <TableCell component="th" align="right">
+                <TableCell
+                  sx={{
+                    ...TypographStyle,
+                    minHeight: "72px",
+                  }}
+                  align="right"
+                >
+                  {row.name}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    minHeight: "72px",
+                    padding: "8px",
+                  }}
+                  align="right"
+                >
                   <Box
                     sx={{
                       display: "flex",
-                      justifyContent: "start",
                       alignItems: "center",
-                      height: "100%",
-                      width: "100%",
                       gap: "8px",
+                      width: "100%",
+                      height: "100%",
                     }}
                   >
                     <Avatar
                       sx={{
-                        lineHeight: "32px",
                         width: "32px",
                         height: "32px",
                       }}
                       alt="Remy Sharp"
                       src={ProfileImg}
                     />
-                    <Typography sx={TypographStyle}>{row.name}</Typography>
+                    <Typography
+                      sx={{
+                        ...TypographStyle,
+                        flex: 1, // يضمن تمدد النص لملء المساحة المتاحة
+                      }}
+                    >
+                      {row.calories}
+                    </Typography>
                   </Box>
                 </TableCell>
-                <TableCell sx={TypographStyle} align="right">
-                  {row.calories}
-                </TableCell>
-                <TableCell sx={TypographStyle} align="right">
+
+                <TableCell
+                  sx={{
+                    ...TypographStyle,
+                    minHeight: "72px",
+                  }}
+                  align="right"
+                >
                   {row.fat}
                 </TableCell>
                 <TableCell
-                  sx={{ display: "flex", alignItems: "center" }}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    minHeight: "72px",
+                  }}
                   align="center"
                 >
                   <Box
                     sx={{
-                      ...TypographStyle,
-                      backgroundColor:
-                        row.carbs === "جديده" ? "#C5FFD1" : "#F1F1F0",
-                      color: row.carbs === "جديده" ? "#49A95E" : "#54514E",
-                      width: "122px",
-
-                      padding: "2px 8px",
-                      border: "1px solid",
-                      borderRadius: "4px",
-                      borderColor:
-                        row.carbs === "جديده" ? "#84F39C" : "#C9C6C4",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "100%",
                     }}
                   >
-                    {row.carbs}
+                    <Cell />
                   </Box>
                 </TableCell>
               </TableRow>
@@ -207,11 +232,11 @@ export default function BasicTable() {
           </TableBody>
         </Table>
 
-        {/* //Tabel Footer  */}
+        {/* Tabel Footer */}
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "start",
             alignItems: "center",
             flexWrap: "wrap",
             padding: "8px",
@@ -232,7 +257,15 @@ export default function BasicTable() {
               rows.length
             )} من ${rows.length} مدخلات`}
           </Box>
-          <Box sx={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              alignSelf: "center",
+              gap: "16px",
+            }}
+          >
             <Button
               onClick={() => handlePaginationChange(null, page)}
               disabled={page === 0}
@@ -312,22 +345,6 @@ export default function BasicTable() {
               <MenuItem value={25}>25</MenuItem>
             </Select>
           </Box>
-          <BaseBtn
-            Text={t("export")}
-            Style={{
-              width: { xs: "100%", sm: "156px" },
-              marginTop: { xs: "10px", sm: "0px" },
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              gap: "8px",
-              padding: "8px",
-              border: "1px solid #F6E6E1",
-              borderRadius: "50px",
-            }}
-            Icon={EportIcon}
-          />
         </Box>
       </TableContainer>
     </Box>

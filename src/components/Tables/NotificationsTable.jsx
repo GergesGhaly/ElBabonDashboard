@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import SearchInput from "../Inputs/SearchInput";
 import Pagination from "@mui/material/Pagination";
+import ResendIcon from "../../assets/ResendIcon.svg";
 import {
   Box,
   Select,
@@ -22,20 +23,21 @@ import BaseBtn from "../Buttons/BaseBtn";
 import EportIcon from "../../assets/ExportIcon.svg";
 import ProfileImg from "../../assets/image/Ellipse 598.png";
 import Basicselect from "../Inputs/Basicselect";
+import DateInput from "../Inputs/DateInput";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(id, name, calories, fat, carbs) {
+  return { id, name, calories, fat, carbs };
 }
 
 const rows = [
-  createData("ليد ال ضبعان", 35, "مدير النظام", "جديده"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "معطل"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "معطل"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "جديده"),
-  createData("ليد ال ضبعان", 35, "مدير النظام", "معطل"),
+  createData(1, " انشر تقريرك وساعد الباحثين ", " 1-2-2020", "الرياض"),
+  createData(2, " انشر تقريرك وساعد الباحثين ", " 1-2-2020", "المواطن"),
+  createData(3, " انشر تقريرك وساعد الباحثين ", " 1-2-2020", "الرياض"),
+  createData(4, " انشر تقريرك وساعد الباحثين ", " 1-2-2020", "الباحث"),
+  createData(5, " انشر تقريرك وساعد الباحثين ", " 1-2-2020", "الرياض"),
 ];
 
-export default function BasicTable() {
+export default function NotificationsTable() {
   const { t, i18n } = useTranslation();
 
   const [page, setPage] = React.useState(0);
@@ -89,19 +91,24 @@ export default function BasicTable() {
         borderRadius: "8px",
       }}
     >
-      <Grid container spacing={3} sx={{ margin: "16px 0" }}>
+      <Grid container spacing={3} sx={{ margin: "15px 0" }}>
         {/* العنصر الأول */}
         <Grid item xs={12} md={6}>
           <SearchInput />
         </Grid>
 
         {/* العناصر الأخرى */}
-        <Grid item xs={6} md={3}>
+        <Grid item xs={4} md={2}>
           <Box>
-            <Basicselect PlaceHolder={t("role")} Options={Options} />
+            <DateInput Placeholder={t("from")} />
           </Box>
         </Grid>
-        <Grid item xs={6} md={3}>
+        <Grid item xs={4} md={2}>
+          <Box>
+            <DateInput Placeholder={t("to")} />
+          </Box>
+        </Grid>
+        <Grid item xs={4} md={2}>
           <Box>
             <Basicselect PlaceHolder={t("status")} Options={Options} />
           </Box>
@@ -112,7 +119,7 @@ export default function BasicTable() {
       <Box />
 
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ width: "100%" }} aria-label="simple table">
           <TableHead>
             <TableRow
               sx={{
@@ -120,24 +127,24 @@ export default function BasicTable() {
                 width: "100%",
               }}
             >
-              <TableCell sx={TableCellStyle} align="right">
+              <TableCell sx={{ ...TableCellStyle }} align="right">
                 {" "}
                 م
               </TableCell>
 
-              <TableCell sx={TableCellStyle} align="right">
+              <TableCell sx={{ ...TableCellStyle }} align="right">
                 {" "}
-                تم كتابته
+                نص الرسالة
               </TableCell>
-              <TableCell sx={TableCellStyle} align="right">
+              <TableCell sx={{ ...TableCellStyle }} align="right">
                 {" "}
-                مهام الشهر
+                تاريخ الارسال
               </TableCell>
-              <TableCell sx={TableCellStyle} align="right">
-                الدور
+              <TableCell sx={{ ...TableCellStyle }} align="right">
+                موجهه الى
               </TableCell>
-              <TableCell sx={TableCellStyle} align="right">
-                الحاله
+              <TableCell sx={{ ...TableCellStyle }} align="right">
+                التحكم
               </TableCell>
             </TableRow>
           </TableHead>
@@ -148,11 +155,23 @@ export default function BasicTable() {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell sx={TypographStyle} component="th" align="right">
-                  0
+                  {row.id}
                 </TableCell>
-
                 <TableCell component="th" align="right">
-                  <Box
+                  <Box>
+                    <Typography sx={TypographStyle}>{row.name}</Typography>
+                  </Box>
+                </TableCell>
+                <TableCell component="th" align="right">
+                  <Box>
+                    <Typography sx={TypographStyle}>{row.calories}</Typography>
+                  </Box>
+                </TableCell>
+                <TableCell sx={TypographStyle} align="right">
+                  {row.fat}
+                </TableCell>
+                <TableCell component="th" align="right">
+                  <Button
                     sx={{
                       display: "flex",
                       justifyContent: "start",
@@ -160,47 +179,15 @@ export default function BasicTable() {
                       height: "100%",
                       width: "100%",
                       gap: "8px",
+                      color: "#B65535",
+                      textTransform: "none",
                     }}
+                    startIcon={<img src={ResendIcon} alt="Resend Icon" />}
                   >
-                    <Avatar
-                      sx={{
-                        lineHeight: "32px",
-                        width: "32px",
-                        height: "32px",
-                      }}
-                      alt="Remy Sharp"
-                      src={ProfileImg}
-                    />
-                    <Typography sx={TypographStyle}>{row.name}</Typography>
-                  </Box>
-                </TableCell>
-                <TableCell sx={TypographStyle} align="right">
-                  {row.calories}
-                </TableCell>
-                <TableCell sx={TypographStyle} align="right">
-                  {row.fat}
-                </TableCell>
-                <TableCell
-                  sx={{ display: "flex", alignItems: "center" }}
-                  align="center"
-                >
-                  <Box
-                    sx={{
-                      ...TypographStyle,
-                      backgroundColor:
-                        row.carbs === "جديده" ? "#C5FFD1" : "#F1F1F0",
-                      color: row.carbs === "جديده" ? "#49A95E" : "#54514E",
-                      width: "122px",
-
-                      padding: "2px 8px",
-                      border: "1px solid",
-                      borderRadius: "4px",
-                      borderColor:
-                        row.carbs === "جديده" ? "#84F39C" : "#C9C6C4",
-                    }}
-                  >
-                    {row.carbs}
-                  </Box>
+                    <Typography sx={{ ...TypographStyle, color: "#B65535" }}>
+                      اعادة الارسال
+                    </Typography>
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

@@ -4,9 +4,11 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 const TheRole = () => {
+  const { t } = useTranslation();
+  // هنا اهو 
   const data = [
-    { value: 15, label: "مدير النظام" },
-    { value: 10, label: "مدير الباحثين" },
+    { value: 15, label: t("system administrator")},
+    { value: 10, label:t("research director") },
     { value: 75, label: "باحث" },
   ];
 
@@ -15,7 +17,6 @@ const TheRole = () => {
     height: 213,
   };
 
-  const { t } = useTranslation();
 
   const palette = ["#E7BAAC", "#DC9C87", "#B65535"];
 

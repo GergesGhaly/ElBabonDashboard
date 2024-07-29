@@ -221,7 +221,16 @@ const Home = () => {
         },
       }}
     >
-      <PageTitle Text={t("home admin")} />
+      <PageTitle
+        Text={t("home admin")}
+        Style={{
+          fontFamily: "Frutiger LT Arabic, sans-serif",
+          fontWeight: 700,
+          fontSize: "25px",
+          lineHeight: "40px",
+          margin: "15px 0 32px 0",
+        }}
+      />
 
       {/* Filtres */}
       <Grid container spacing={2} sx={{ width: "100%", alignItems: "center" }}>

@@ -17,6 +17,7 @@ import ProfileIcon from "../../assets/ProfileIcon.svg";
 import LogOutIcon from "../../assets/LogOutIcon.svg";
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const SidBar = ({ isMenuVisible }) => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -37,14 +38,14 @@ const SidBar = ({ isMenuVisible }) => {
   };
 
   const menuItems = [
-    { icon: HomeIcon, text: t("home admin") },
-    { icon: ReportIcon, text: t("reports") },
-    { icon: UsersIcon, text: t("users") },
-    { icon: LocationIcon, text: t("locations") },
-    { icon: NotifcationIcon, text: t("notifications") },
-    { icon: HistoryIcon, text: t("activityLog") },
-    { icon: ProfileIcon, text: t("profile") },
-    { icon: LogOutIcon, text: t("logout") },
+    { icon: HomeIcon, text: t("home admin"), path: "/home" },
+    { icon: ReportIcon, text: t("reports"), path: "/report-questions" },
+    { icon: UsersIcon, text: t("users"), path: "/users" },
+    { icon: LocationIcon, text: t("locations"), path: "/locations" },
+    { icon: NotifcationIcon, text: t("notifications"), path: "/notification" },
+    { icon: HistoryIcon, text: t("activityLog"), path: "/activity-log" },
+    { icon: ProfileIcon, text: t("profile"), path: "/profile" },
+    { icon: LogOutIcon, text: t("logout"), path: "/" },
   ];
 
   return (
@@ -142,22 +143,28 @@ const SidBar = ({ isMenuVisible }) => {
                       }}
                     >
                       <ul className="list-Accordion" style={{ width: "100%" }}>
-                        <li
-                          className={`sub-list-item ${
-                            activeSubIndex === 0 ? "active" : ""
-                          }`}
-                          onClick={(event) => handleSubItemClick(event, 0)}
-                        >
-                          <span className="text">{t("view reports")}</span>
-                        </li>
-                        <li
-                          className={`sub-list-item ${
-                            activeSubIndex === 1 ? "active" : ""
-                          }`}
-                          onClick={(event) => handleSubItemClick(event, 1)}
-                        >
-                          <span className="text">{t("report questions")} </span>
-                        </li>
+                        <Link to="/view-reports">
+                          <li
+                            className={`sub-list-item ${
+                              activeSubIndex === 0 ? "active" : ""
+                            }`}
+                            onClick={(event) => handleSubItemClick(event, 0)}
+                          >
+                            <span className="text">{t("view reports")}</span>
+                          </li>
+                        </Link>
+                        <Link to="report-questions">
+                          <li
+                            className={`sub-list-item ${
+                              activeSubIndex === 1 ? "active" : ""
+                            }`}
+                            onClick={(event) => handleSubItemClick(event, 1)}
+                          >
+                            <span className="text">
+                              {t("report questions")}{" "}
+                            </span>
+                          </li>
+                        </Link>
                       </ul>
                     </AccordionDetails>
                   </Accordion>
@@ -169,21 +176,23 @@ const SidBar = ({ isMenuVisible }) => {
                 className={`list-item ${activeIndex === index ? "active" : ""}`}
                 onClick={() => handleItemClick(index)}
               >
-                <Box sx={{ display: "flex" }} className="icon-text">
-                  <img src={item.icon} alt="" className="icon" />
-                  <Typography
-                    component="span"
-                    className="text"
-                    sx={{
-                      display: {
-                        sm: "none",
-                        md: "flex",
-                      },
-                    }}
-                  >
-                    {item.text}
-                  </Typography>
-                </Box>
+                <Link to={item.path}>
+                  <Box sx={{ display: "flex" }} className="icon-text">
+                    <img src={item.icon} alt="" className="icon" />
+                    <Typography
+                      component="span"
+                      className="text"
+                      sx={{
+                        display: {
+                          sm: "none",
+                          md: "flex",
+                        },
+                      }}
+                    >
+                      {item.text}
+                    </Typography>
+                  </Box>
+                </Link>
               </li>
             )
           )}
