@@ -44,7 +44,7 @@ const SidBar = ({ isMenuVisible }) => {
     { icon: LocationIcon, text: t("locations"), path: "/locations" },
     { icon: NotifcationIcon, text: t("notifications"), path: "/notification" },
     { icon: HistoryIcon, text: t("activityLog"), path: "/activity-log" },
-    { icon: ProfileIcon, text: t("profile"), path: "/profile" },
+    { icon: ProfileIcon, text: t("profile"), path: "/edit-profile" },
     { icon: LogOutIcon, text: t("logout"), path: "/" },
   ];
 

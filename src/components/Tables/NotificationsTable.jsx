@@ -312,6 +312,7 @@ export default function NotificationsTable() {
               padding: "8px",
               border: "1px solid #F6E6E1",
               borderRadius: "50px",
+              color: "#B65535",
             }}
             Icon={EportIcon}
           />

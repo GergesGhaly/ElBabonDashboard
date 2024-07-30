@@ -11,7 +11,6 @@ import Avatar from "@mui/material/Avatar";
 //assets
 import ProfileImg from "../../assets/image/Ellipse 598.png";
 import BillIcon from "../../assets/BillIcon.svg";
-import languageIcon from "../../assets/languageIcon.svg";
 import MoodToogleBtn from "../MoodToogleBtn/MoodToogleBtn";
 import MnuiToggleIcon from "../../assets/MnuiToggleIcon.svg";
 //i18

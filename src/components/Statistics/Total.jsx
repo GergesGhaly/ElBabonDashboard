@@ -3,13 +3,12 @@ import React from "react";
 import MicIcon from "../../assets/MicIcon.svg";
 import { useTranslation } from "react-i18next";
 
-const Total = ({ Title, Icon, Number }) => {
+const Total = ({ Title, Icon, Number,Style }) => {
   const { t, i18n } = useTranslation();
 
   return (
     <Box
-      sx={{
-        backgroundColor: "#FBF4F2",
+      sx={{...Style,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -22,10 +21,10 @@ const Total = ({ Title, Icon, Number }) => {
     >
       <Box
         sx={{
-          backgroundColor: "#FBF4F2",
           display: "flex",
           justifyContent: "space-between",
-          gap: "10px",
+          alignItems: "center",
+          // gap: "10px",
         }}
       >
         <Box
@@ -59,7 +58,6 @@ const Total = ({ Title, Icon, Number }) => {
 
       <Box
         sx={{
-          backgroundColor: "#FBF4F2",
           display: "flex",
           justifyContent: "space-between",
           gap: "10px",

@@ -1,4 +1,3 @@
-// export default HomePageTable;
 import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -7,8 +6,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import SearchInput from "../Inputs/SearchInput";
 import Pagination from "@mui/material/Pagination";
+
+//icons
+import EditIcon from "../../assets/EditIcon.svg";
+import ArchiveIcon from "../../assets/ArchiveIcon.svg";
+
 import {
   Box,
   Select,
@@ -23,21 +26,42 @@ import BaseBtn from "../Buttons/BaseBtn";
 import EportIcon from "../../assets/ExportIcon.svg";
 import ProfileImg from "../../assets/image/Ellipse 598.png";
 import Basicselect from "../Inputs/Basicselect";
-import DateInput from "../Inputs/DateInput";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(id, area) {
+  return { id, area };
 }
 
 const rows = [
-  createData("ليد ال ضبعان", 35, " 1-2-2020", "الرياض", "جديده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
+  createData(35, "الرياض"),
+  createData(35, "مكه"),
+  createData(35, "مكه"),
+  createData(35, "مكه"),
+  createData(35, "عسير"),
+  createData(35, "عسير"),
+  createData(35, "المدينه"),
+  createData(35, "مكه"),
+  createData(35, "المدينه"),
+  createData(35, "عسير"),
+  createData(35, "المدينه"),
+  createData(35, "عسير"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
+  createData(35, "المدينه"),
 ];
 
-export default function ViewReportsTable() {
+export default function LocationsTable() {
   const { t, i18n } = useTranslation();
 
   const [page, setPage] = React.useState(0);
@@ -91,39 +115,6 @@ export default function ViewReportsTable() {
         borderRadius: "8px",
       }}
     >
-      <Grid container spacing={3} sx={{ margin: "16px 0" }}>
-        {/* العنصر الأول */}
-        <Grid item xs={12} md={4}>
-          <SearchInput />
-        </Grid>
-
-        {/* العناصر الأخرى */}
-        <Grid item xs={6} md={2}>
-          <Box>
-            <DateInput Placeholder={t("from")} />
-          </Box>
-        </Grid>
-        <Grid item xs={6} md={2}>
-          <Box>
-            <DateInput Placeholder={t("to")} />
-          </Box>
-        </Grid>
-        <Grid item xs={6} md={2}>
-          <Box>
-            <Basicselect PlaceHolder={t("role")} Options={Options} />
-          </Box>
-        </Grid>
-
-        <Grid item xs={6} md={2}>
-          <Box>
-            <Basicselect PlaceHolder={t("status")} Options={Options} />
-          </Box>
-        </Grid>
-      </Grid>
-
-      {/* Table body*/}
-      <Box />
-
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -135,25 +126,16 @@ export default function ViewReportsTable() {
             >
               <TableCell sx={TableCellStyle} align="right">
                 {" "}
-                م
+                المعرف
               </TableCell>
 
               <TableCell sx={TableCellStyle} align="right">
                 {" "}
-                مقدم البلاغ
-              </TableCell>
-              <TableCell sx={TableCellStyle} align="right">
-                {" "}
-                رقم البلاغ
-              </TableCell>
-              <TableCell sx={TableCellStyle} align="right">
-                تاريخ البلاغ
-              </TableCell>
-              <TableCell sx={TableCellStyle} align="right">
                 المنطقه
               </TableCell>
               <TableCell sx={TableCellStyle} align="right">
-                الحاله
+                {" "}
+                اجراءات
               </TableCell>
             </TableRow>
           </TableHead>
@@ -164,62 +146,50 @@ export default function ViewReportsTable() {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell sx={TypographStyle} component="th" align="right">
-                  0
+                  {row.id}
                 </TableCell>
 
-                <TableCell component="th" align="right">
-                  <Box
+                <TableCell sx={TypographStyle} align="right">
+                  {row.area}
+                </TableCell>
+                <TableCell
+                  sx={{ display: "flex", alignItems: "center" }}
+                  align="center"
+                >
+                  <Button
                     sx={{
                       display: "flex",
                       justifyContent: "start",
                       alignItems: "center",
                       height: "100%",
-                      width: "100%",
+                      //   width: "100%",
                       gap: "8px",
+                      //   color: "#F6AF44",
+                      textTransform: "none",
                     }}
+                    startIcon={<img src={EditIcon} alt="Edit Icon" />}
                   >
-                    <Avatar
-                      sx={{
-                        lineHeight: "32px",
-                        width: "32px",
-                        height: "32px",
-                      }}
-                      alt="Remy Sharp"
-                      src={ProfileImg}
-                    />
-                    <Typography sx={TypographStyle}>{row.name}</Typography>
-                  </Box>
-                </TableCell>
-                <TableCell sx={TypographStyle} align="right">
-                  {row.calories}
-                </TableCell>
-                <TableCell sx={TypographStyle} align="right">
-                  {row.fat}
-                </TableCell>
-                <TableCell sx={TypographStyle} align="right">
-                  {row.carbs}
-                </TableCell>
-
-                <TableCell
-                  sx={{ display: "flex", alignItems: "center" }}
-                  align="center"
-                >
-                  <Box
+                    <Typography sx={{ ...TypographStyle, color: "#F6AF44" }}>
+                      تعديل
+                    </Typography>
+                  </Button>
+                  <Button
                     sx={{
-                      ...TypographStyle,
-                      backgroundColor:
-                        row.protein === "جديده" ? "#C5FFD1" : "#FFE6C0",
-                      color: row.protein === "جديده" ? "#49A95E" : "#D08C26",
-                      width: "122px",
-                      padding: "2px 8px",
-                      border: "1px solid",
-                      borderRadius: "4px",
-                      borderColor:
-                        row.protein === "جديده" ? "#84F39C" : "#D08C26",
+                      display: "flex",
+                      justifyContent: "start",
+                      alignItems: "center",
+                      height: "100%",
+                      //   width: "100%",
+                      gap: "8px",
+                      //   color: "#B65535",
+                      textTransform: "none",
                     }}
+                    startIcon={<img src={ArchiveIcon} alt="Archives Icon" />}
                   >
-                    {row.protein}
-                  </Box>
+                    <Typography sx={{ ...TypographStyle, color: "#984848" }}>
+                      نقل الى الارشيف
+                    </Typography>
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
@@ -238,12 +208,11 @@ export default function ViewReportsTable() {
         >
           <Box
             sx={{
-              marginRight: "16px",
               fontSize: "14px",
               fontWeight: "700",
               color: "#AAA6A3",
               fontFamily: "Frutiger LT Arabic",
-              order: { xs: "0", sm: "2", md: "0" },
+            //   marginRight: "auto", // إزاحة النص إلى اليمين
             }}
           >
             {`عرض من ${page * rowsPerPage + 1} الى ${Math.min(
@@ -251,7 +220,40 @@ export default function ViewReportsTable() {
               rows.length
             )} من ${rows.length} مدخلات`}
           </Box>
-          <Box sx={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "16px",
+              flexGrow: 1,
+            }}
+          >
+            <Select
+              value={rowsPerPage}
+              onChange={handleChangeRowsPerPage}
+              displayEmpty
+              sx={{
+                width: "68px",
+                height: "40px",
+                borderRadius: "10px",
+                border: "1px solid #C2C2C2",
+                "& .Mui-selected": {
+                  backgroundColor: "#ffff !important",
+                  outline: "#B65535",
+                },
+                "& .MuiOutlinedInput-notchedOutline": {
+                  border: "none",
+                },
+                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  border: "none",
+                },
+              }}
+            >
+              <MenuItem value={5}>5</MenuItem>
+              <MenuItem value={10}>10</MenuItem>
+              <MenuItem value={25}>25</MenuItem>
+            </Select>
             <Button
               onClick={() => handlePaginationChange(null, page)}
               disabled={page === 0}
@@ -305,51 +307,12 @@ export default function ViewReportsTable() {
             >
               التالي
             </Button>
-            <Select
-              value={rowsPerPage}
-              onChange={handleChangeRowsPerPage}
-              displayEmpty
-              sx={{
-                width: "68px",
-                height: "40px",
-                borderRadius: "10px",
-                border: "1px solid #C2C2C2",
-                "& .Mui-selected": {
-                  backgroundColor: "#ffff !important",
-                  outline: "#B65535",
-                },
-                "& .MuiOutlinedInput-notchedOutline": {
-                  border: "none",
-                },
-                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  border: "none",
-                },
-              }}
-            >
-              <MenuItem value={5}>5</MenuItem>
-              <MenuItem value={10}>10</MenuItem>
-              <MenuItem value={25}>25</MenuItem>
-            </Select>
           </Box>
-          <BaseBtn
-            Text={t("export")}
-            Style={{
-              width: { xs: "100%", sm: "156px" },
-              marginTop: { xs: "10px", sm: "0px" },
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              gap: "8px",
-              padding: "8px",
-              border: "1px solid #F6E6E1",
-              borderRadius: "50px",
-              color: "#B65535",
-            }}
-            Icon={EportIcon}
-          />
         </Box>
       </TableContainer>
+
+      {/* Table body*/}
+      <Box />
     </Box>
   );
 }

@@ -8,8 +8,9 @@ import BaseBtn from "../../components/Buttons/BaseBtn";
 import PageDescription from "../../components/PageDescription";
 import PlusIcon from "../../assets/PlusIcon.svg";
 import Footer from "../../components/Footer/Footer";
+import LocationsTable from "../../components/Tables/LocationsTable";
 
-const ReportQuestions = () => {
+const Locations = () => {
   const { t, i18n } = useTranslation();
 
   return (
@@ -29,7 +30,7 @@ const ReportQuestions = () => {
       }}
     >
       <PageTitle
-        Text={t("report questions")}
+        Text={t("locations")}
         Style={{
           fontFamily: "Frutiger LT Arabic, sans-serif",
           fontWeight: 700,
@@ -39,9 +40,9 @@ const ReportQuestions = () => {
         }}
       />
       <PageDescription
-        Text={t("you can activate only one of the following forms")}
+        Text={t("areas supported by the system that can be added and modified")}
         Style={{
-          fontFamily: "Frutiger LT Arabic, sans-serif",
+          fontFamily: "Frutiger LT Arabic",
           fontWeight: 300,
           fontSize: "16px",
           lineHeight: "25.6px",
@@ -53,7 +54,7 @@ const ReportQuestions = () => {
 
       <BaseBtn
         Icon={PlusIcon}
-        Text={t("add new report")}
+        Text={t("add area")}
         Style={{
           height: "48px",
           borderRadius: "50px",
@@ -68,10 +69,10 @@ const ReportQuestions = () => {
           cursor: "pointer",
         }}
       />
-      <ReportQuestionsTable />
+      <LocationsTable />
       <Footer />
     </Box>
   );
 };
 
-export default ReportQuestions;
+export default Locations;

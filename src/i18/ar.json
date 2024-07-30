@@ -5,6 +5,9 @@
   "dashboard": "لوحه التحكم",
   "email": " البريد الاكترونى",
   "password": "كلمة المرور",
+  "name": "الاسم",
+  "age": "العمر",
+  "phone": "رقم الهاتف",
   "forgot your password ?": "نسيت كلمه السر ؟",
   "remember me": "تذكرنى",
   "enter email": "ادخل بريدك الالكترونى",
@@ -47,5 +50,17 @@
   "next": "التالي",
   "add new report": "  اضافة تقرير جديد",
   "you can activate only one of the following forms": "يمكنك تفعيل واحد فقط من الاشكال الآتية   :",
-  "add new notification":"اضافة اشعار جديد"
+  "add new notification": "اضافة اشعار جديد",
+  "areas supported by the system that can be added and modified": "المناطق التي يدعمها النظام والتي يمكن إضافة وتعديلها",
+  "add area": "اضافة منطقة",
+  "add user": "اضافه مستخدم",
+  "edit information": "تعديل المستخدم",
+  "disable user": "تعطيل المستخدم ",
+  "user details": "تفاصيل المستخدم",
+  "edit profile": "تعديل الملف الشخصى",
+  "edit": "تعديل",
+  "gender":"الجنس",
+  "female":"انثى",
+  "male":"ذكر"
+
 }

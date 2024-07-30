@@ -10,6 +10,12 @@ import Home from "../Home/Home";
 import ViewReports from "../ViewReports/ViewReports";
 import Login from "../Login/Login";
 import { Route, Routes } from "react-router-dom";
+import Locations from "../Locations/Locations";
+// import Users from "../UserDetails/Users";
+import UserDetails from "../UserDetails/UserDetails";
+import Users from "../Users/Users";
+import Profile from "../EditProfile/EditProfile";
+import EditProfile from "../EditProfile/EditProfile";
 
 const Main = () => {
   //Toggle State Menu Handel
@@ -29,6 +35,10 @@ const Main = () => {
         <Route path="/activity-log" element={<ActivityLog />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/view-reports" element={<ViewReports />} />
+        <Route path="/locations" element={<Locations />} />
+        <Route path="/users/:id" element={<UserDetails />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
         {/* Default route in case of unmatched path */}
         {/* <Route path="*" element={<Home />} /> */}
       </Routes>

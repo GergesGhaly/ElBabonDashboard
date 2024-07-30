@@ -1,4 +1,3 @@
-// export default HomePageTable;
 import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -23,21 +22,81 @@ import BaseBtn from "../Buttons/BaseBtn";
 import EportIcon from "../../assets/ExportIcon.svg";
 import ProfileImg from "../../assets/image/Ellipse 598.png";
 import Basicselect from "../Inputs/Basicselect";
-import DateInput from "../Inputs/DateInput";
+import Cell from "../Inputs/Switch";
+import { Link } from "react-router-dom";
+import EditeBlackIcon from "../../assets/EditeBlackIcon.svg";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(id, name, role, identifier, phone, mail, client) {
+  return { id, name, role, identifier, phone, mail, client };
 }
 
 const rows = [
-  createData("ليد ال ضبعان", 35, " 1-2-2020", "الرياض", "جديده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
+  createData(
+    1,
+    " جابر حكمى",
+    " مواطن",
+    "0122",
+    "01274458",
+    "gaber@gmail.com",
+    33
+  ),
+  createData(
+    1,
+    " جابر حكمى",
+    " مواطن",
+    "0122",
+    "01274458",
+    "gaber@gmail.com",
+    33
+  ),
+  createData(
+    1,
+    " جابر حكمى",
+    " مواطن",
+    "0122",
+    "01274458",
+    "gaber@gmail.com",
+    33
+  ),
+  createData(
+    1,
+    " جابر حكمى",
+    " مواطن",
+    "0122",
+    "01274458",
+    "gaber@gmail.com",
+    33
+  ),
+  createData(
+    1,
+    " جابر حكمى",
+    " مواطن",
+    "0122",
+    "01274458",
+    "gaber@gmail.com",
+    33
+  ),
+  createData(
+    1,
+    " جابر حكمى",
+    " مواطن",
+    "0122",
+    "01274458",
+    "gaber@gmail.com",
+    33
+  ),
+  createData(
+    1,
+    " جابر حكمى",
+    " مواطن",
+    "0122",
+    "01274458",
+    "gaber@gmail.com",
+    33
+  ),
 ];
 
-export default function ViewReportsTable() {
+export default function UsersTable() {
   const { t, i18n } = useTranslation();
 
   const [page, setPage] = React.useState(0);
@@ -91,32 +150,25 @@ export default function ViewReportsTable() {
         borderRadius: "8px",
       }}
     >
-      <Grid container spacing={3} sx={{ margin: "16px 0" }}>
+      <Grid container spacing={3} sx={{ margin: "15px 0" }}>
         {/* العنصر الأول */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <SearchInput />
         </Grid>
-
         {/* العناصر الأخرى */}
-        <Grid item xs={6} md={2}>
-          <Box>
-            <DateInput Placeholder={t("from")} />
-          </Box>
-        </Grid>
-        <Grid item xs={6} md={2}>
-          <Box>
-            <DateInput Placeholder={t("to")} />
-          </Box>
-        </Grid>
-        <Grid item xs={6} md={2}>
+        <Grid item xs={4} md={2}>
           <Box>
             <Basicselect PlaceHolder={t("role")} Options={Options} />
           </Box>
         </Grid>
-
-        <Grid item xs={6} md={2}>
+        <Grid item xs={4} md={2}>
           <Box>
-            <Basicselect PlaceHolder={t("status")} Options={Options} />
+            <Basicselect PlaceHolder={t("role")} Options={Options} />
+          </Box>
+        </Grid>{" "}
+        <Grid item xs={4} md={2}>
+          <Box>
+            <Basicselect PlaceHolder={t("role")} Options={Options} />
           </Box>
         </Grid>
       </Grid>
@@ -125,7 +177,7 @@ export default function ViewReportsTable() {
       <Box />
 
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ width: "100%" }} aria-label="simple table">
           <TableHead>
             <TableRow
               sx={{
@@ -133,27 +185,33 @@ export default function ViewReportsTable() {
                 width: "100%",
               }}
             >
-              <TableCell sx={TableCellStyle} align="right">
+              <TableCell sx={{ ...TableCellStyle }} align="right">
                 {" "}
                 م
               </TableCell>
 
-              <TableCell sx={TableCellStyle} align="right">
+              <TableCell sx={{ ...TableCellStyle }} align="right">
                 {" "}
-                مقدم البلاغ
+                المستخدم
               </TableCell>
-              <TableCell sx={TableCellStyle} align="right">
+              <TableCell sx={{ ...TableCellStyle }} align="right">
                 {" "}
-                رقم البلاغ
+                الدور
               </TableCell>
-              <TableCell sx={TableCellStyle} align="right">
-                تاريخ البلاغ
+              <TableCell sx={{ ...TableCellStyle }} align="right">
+                المعرف
               </TableCell>
-              <TableCell sx={TableCellStyle} align="right">
-                المنطقه
+              <TableCell sx={{ ...TableCellStyle }} align="right">
+                رقم الجوال
               </TableCell>
-              <TableCell sx={TableCellStyle} align="right">
-                الحاله
+              <TableCell sx={{ ...TableCellStyle }} align="right">
+                البريد
+              </TableCell>
+              <TableCell sx={{ ...TableCellStyle }} align="right">
+                العميل
+              </TableCell>
+              <TableCell sx={{ ...TableCellStyle }} align="right">
+                التحكم
               </TableCell>
             </TableRow>
           </TableHead>
@@ -164,9 +222,8 @@ export default function ViewReportsTable() {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell sx={TypographStyle} component="th" align="right">
-                  0
+                  {row.id}
                 </TableCell>
-
                 <TableCell component="th" align="right">
                   <Box
                     sx={{
@@ -190,35 +247,37 @@ export default function ViewReportsTable() {
                     <Typography sx={TypographStyle}>{row.name}</Typography>
                   </Box>
                 </TableCell>
-                <TableCell sx={TypographStyle} align="right">
-                  {row.calories}
+                <TableCell component="th" align="right">
+                  <Box>
+                    <Typography sx={TypographStyle}>{row.role}</Typography>
+                  </Box>
                 </TableCell>
                 <TableCell sx={TypographStyle} align="right">
-                  {row.fat}
+                  {row.identifier}
                 </TableCell>
                 <TableCell sx={TypographStyle} align="right">
-                  {row.carbs}
+                  {row.phone}
+                </TableCell>
+                <TableCell sx={TypographStyle} align="right">
+                  {row.mail}
+                </TableCell>
+                <TableCell sx={TypographStyle} align="right">
+                  {row.client}
                 </TableCell>
 
-                <TableCell
-                  sx={{ display: "flex", alignItems: "center" }}
-                  align="center"
-                >
+                <TableCell component="th" align="right">
                   <Box
                     sx={{
-                      ...TypographStyle,
-                      backgroundColor:
-                        row.protein === "جديده" ? "#C5FFD1" : "#FFE6C0",
-                      color: row.protein === "جديده" ? "#49A95E" : "#D08C26",
-                      width: "122px",
-                      padding: "2px 8px",
-                      border: "1px solid",
-                      borderRadius: "4px",
-                      borderColor:
-                        row.protein === "جديده" ? "#84F39C" : "#D08C26",
+                      display: "flex",
+                      justifyContent: "start",
+                      alignItems: "center",
+                      gap: "16px",
                     }}
                   >
-                    {row.protein}
+                    <Cell />
+                    <Link to="/users/1">
+                      <img src={EditeBlackIcon} alt="" />
+                    </Link>
                   </Box>
                 </TableCell>
               </TableRow>

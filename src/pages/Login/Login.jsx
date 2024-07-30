@@ -20,19 +20,20 @@ import EyeIcon from "../../assets/EyeIcon.svg";
 import languageIcon from "../../assets/languageIcon.svg";
 import { useTranslation } from "react-i18next";
 import LanguegeToggleBtn from "../../components/Buttons/LanguegeToggleBtn";
+import PasswordInput from "../../components/Inputs/PasswordInput";
+import EmailInput from "../../components/Inputs/EmailInput";
 
 // Default MUI theme
 const defaultTheme = createTheme();
 
 export default function Login() {
   // State hooks for email, password, password visibility, and language toggle
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [show, setShow] = useState(false); // Controls password visibility
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [show, setShow] = useState(false); // Controls password visibility
 
   //i18
   const { t, i18n } = useTranslation();
-
 
   // Handles form submission
   const handleSubmit = (event) => {
@@ -137,7 +138,8 @@ export default function Login() {
                 sx={{ mt: 1 }}
               >
                 {/* Email input field */}
-                <Box
+                <EmailInput/>
+                {/* <Box
                   sx={{
                     display: "flex",
                     alignItems: "center",
@@ -181,67 +183,9 @@ export default function Login() {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </Box>
-                </Box>
+                </Box> */}
 
-                {/* Password input field */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "10px",
-                    borderRadius: "8px",
-                    border: "1px solid #e0e4ea",
-                    padding: "4px 8px",
-                    margin: "15px 0",
-                    direction: "rtl",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      paddingRight: "5px",
-                    }}
-                  >
-                    <img src={phoneIcon} alt="Phone Icon" />
-                  </Box>
-                  <Box>
-                    <Typography
-                      variant="body1"
-                      color="#54514E"
-                      sx={{
-                        fontSize: "14px",
-                        fontWeight: "700",
-                        lineHeight: "22.4px",
-                        padding: "0px",
-                        margin: "0px",
-                        fontFamily: "Frutiger LT Arabic, sans-serif",
-                      }}
-                    >
-                      {t("password")}
-                    </Typography>
-                    <input
-                      type={show ? "text" : "password"}
-                      placeholder={t("enter password")}
-                      className="loginFormInpt"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "5px",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => setShow(!show)}
-                  >
-                    <img src={EyeIcon} alt="Eye Icon" />
-                  </Box>
-                </Box>
-
+                <PasswordInput />
                 {/* Additional options: Forgot password and Remember me */}
                 <Box
                   sx={{
@@ -287,6 +231,7 @@ export default function Login() {
                 </Box>
 
                 {/* Submit button */}
+
                 <Button
                   type="submit"
                   fullWidth

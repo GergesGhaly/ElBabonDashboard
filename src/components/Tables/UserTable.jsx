@@ -1,4 +1,3 @@
-// export default HomePageTable;
 import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -23,21 +22,20 @@ import BaseBtn from "../Buttons/BaseBtn";
 import EportIcon from "../../assets/ExportIcon.svg";
 import ProfileImg from "../../assets/image/Ellipse 598.png";
 import Basicselect from "../Inputs/Basicselect";
-import DateInput from "../Inputs/DateInput";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(name, num, date, area, status) {
+  return { name, num, date, area, status };
 }
 
 const rows = [
-  createData("ليد ال ضبعان", 35, " 1-2-2020", "الرياض", "جديده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
-  createData("ليد ال ضبعان", 35, "22-5-1995", "الرياض", "مسنده"),
+  createData("ليد ال ضبعان", 35, "5-7-2024", "الرياض", "جديده"),
+  createData("ليد ال ضبعان", 35, "5-7-2024", "الرياض", "جديده"),
+  createData("ليد ال ضبعان", 35, "5-7-2024", "الرياض", "محفوظ"),
+  createData("ليد ال ضبعان", 35, "5-7-2024", "الرياض", "جديده"),
+  createData("ليد ال ضبعان", 35, "5-7-2024", "الرياض", "مستحقه"),
 ];
 
-export default function ViewReportsTable() {
+export default function UserTable() {
   const { t, i18n } = useTranslation();
 
   const [page, setPage] = React.useState(0);
@@ -93,31 +91,8 @@ export default function ViewReportsTable() {
     >
       <Grid container spacing={3} sx={{ margin: "16px 0" }}>
         {/* العنصر الأول */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12}>
           <SearchInput />
-        </Grid>
-
-        {/* العناصر الأخرى */}
-        <Grid item xs={6} md={2}>
-          <Box>
-            <DateInput Placeholder={t("from")} />
-          </Box>
-        </Grid>
-        <Grid item xs={6} md={2}>
-          <Box>
-            <DateInput Placeholder={t("to")} />
-          </Box>
-        </Grid>
-        <Grid item xs={6} md={2}>
-          <Box>
-            <Basicselect PlaceHolder={t("role")} Options={Options} />
-          </Box>
-        </Grid>
-
-        <Grid item xs={6} md={2}>
-          <Box>
-            <Basicselect PlaceHolder={t("status")} Options={Options} />
-          </Box>
         </Grid>
       </Grid>
 
@@ -191,13 +166,13 @@ export default function ViewReportsTable() {
                   </Box>
                 </TableCell>
                 <TableCell sx={TypographStyle} align="right">
-                  {row.calories}
+                  {row.num}
                 </TableCell>
                 <TableCell sx={TypographStyle} align="right">
-                  {row.fat}
+                  {row.date}
                 </TableCell>
                 <TableCell sx={TypographStyle} align="right">
-                  {row.carbs}
+                  {row.area}
                 </TableCell>
 
                 <TableCell
@@ -208,17 +183,17 @@ export default function ViewReportsTable() {
                     sx={{
                       ...TypographStyle,
                       backgroundColor:
-                        row.protein === "جديده" ? "#C5FFD1" : "#FFE6C0",
-                      color: row.protein === "جديده" ? "#49A95E" : "#D08C26",
+                        row.status === "جديده" ? "#C5FFD1" : "#FFE6C0",
+                      color: row.status === "جديده" ? "#49A95E" : "#D08C26",
                       width: "122px",
                       padding: "2px 8px",
                       border: "1px solid",
                       borderRadius: "4px",
                       borderColor:
-                        row.protein === "جديده" ? "#84F39C" : "#D08C26",
+                        row.status === "جديده" ? "#84F39C" : "#D08C26",
                     }}
                   >
-                    {row.protein}
+                    {row.status}
                   </Box>
                 </TableCell>
               </TableRow>
@@ -343,8 +318,8 @@ export default function ViewReportsTable() {
               gap: "8px",
               padding: "8px",
               border: "1px solid #F6E6E1",
-              borderRadius: "50px",
               color: "#B65535",
+              borderRadius: "50px",
             }}
             Icon={EportIcon}
           />

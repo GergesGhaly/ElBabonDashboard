@@ -1,15 +1,14 @@
-import { Box, colors, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import PageTitle from "../../components/PageTitle";
 import { useTranslation } from "react-i18next";
-import BasicTable from "../../components/Tables/HomePageTable";
-import ReportQuestionsTable from "../../components/Tables/ReportQuestionsTable";
-import BaseBtn from "../../components/Buttons/BaseBtn";
-import PageDescription from "../../components/PageDescription";
-import PlusIcon from "../../assets/PlusIcon.svg";
 import Footer from "../../components/Footer/Footer";
+import NotificationsTable from "../../components/Tables/NotificationsTable";
+import BaseBtn from "../../components/Buttons/BaseBtn";
+import PlusIcon from "../../assets/PlusIcon.svg";
+import UsersTable from "../../components/Tables/UsersTable";
 
-const ReportQuestions = () => {
+const Users = () => {
   const { t, i18n } = useTranslation();
 
   return (
@@ -29,32 +28,20 @@ const ReportQuestions = () => {
       }}
     >
       <PageTitle
-        Text={t("report questions")}
+        Text={t("users")}
         Style={{
           fontFamily: "Frutiger LT Arabic, sans-serif",
           fontWeight: 700,
           fontSize: "25px",
           lineHeight: "40px",
-          margin: "15px 0 0px 0 ",
+          margin: "15px 0 0 0 ",
         }}
       />
-      <PageDescription
-        Text={t("you can activate only one of the following forms")}
-        Style={{
-          fontFamily: "Frutiger LT Arabic, sans-serif",
-          fontWeight: 300,
-          fontSize: "16px",
-          lineHeight: "25.6px",
-          textAlign: "right",
-          color: "#54514E",
-          margin: "0 0 32px 0",
-        }}
-      />
-
       <BaseBtn
         Icon={PlusIcon}
-        Text={t("add new report")}
+        Text={t("add user")}
         Style={{
+          margin: "20px 0 16px 0",
           height: "48px",
           borderRadius: "50px",
           padding: "8px",
@@ -68,10 +55,10 @@ const ReportQuestions = () => {
           cursor: "pointer",
         }}
       />
-      <ReportQuestionsTable />
+      <UsersTable />
       <Footer />
     </Box>
   );
 };
 
-export default ReportQuestions;
+export default Users;

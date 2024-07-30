@@ -5,6 +5,9 @@
   "dashboard": "Dashboard",
   "email": " E-mail",
   "password": "Password ",
+  "name": "Name",
+  "age": "Age",
+  "phone": "Phone",
   "forgot your password ?": "Forgot your password ?",
   "remember me": "Remember me",
   "enter email": "Enter your email address",
@@ -45,7 +48,19 @@
   "researcher": "Researcher",
   "previous": "Previous",
   "next": "Next",
-  "add new report":"Add new report",
-  "you can activate only one of the following forms":"You can activate only one of the following forms:",
-  "add new notification":"Add new notification"
+  "add new report": "Add new report",
+  "you can activate only one of the following forms": "You can activate only one of the following forms:",
+  "add new notification": "Add new notification",
+  "areas supported by the system that can be added and modified": "Areas supported by the system that can be added and modified",
+  "add area": "Add area",
+  "add user": "Add user",
+
+  "edit information": "Edit information",
+  "disable user": "Disable user",
+  "user details": "User details ",
+  "edit profile": "Edit profile",
+  "edit": "Edit",
+  "gender": "Gender",
+  "female":"Female",
+  "male":"Male"
 }

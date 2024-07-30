@@ -9,6 +9,8 @@ import Paper from "@mui/material/Paper";
 import SearchInput from "../Inputs/SearchInput";
 import Pagination from "@mui/material/Pagination";
 import ResendIcon from "../../assets/ResendIcon.svg";
+import ExportIcon from "../../assets/ExportIcon.svg";
+
 import {
   Box,
   Select,
@@ -20,10 +22,10 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import BaseBtn from "../Buttons/BaseBtn";
-import EportIcon from "../../assets/ExportIcon.svg";
 import ProfileImg from "../../assets/image/Ellipse 598.png";
 import Basicselect from "../Inputs/Basicselect";
 import DateInput from "../Inputs/DateInput";
+import TabelBtn from "../Buttons/TabelBtn";
 
 function createData(id, name, calories, fat, carbs, time) {
   return { id, name, calories, fat, carbs, time };
@@ -387,9 +389,11 @@ export default function ActivityLogTable() {
               padding: "8px",
               border: "1px solid #F6E6E1",
               borderRadius: "50px",
+              color: "#B65535",
             }}
-            Icon={EportIcon}
+            Icon={ExportIcon}
           />
+          {/* <TabelBtn/> */}
         </Box>
       </TableContainer>
     </Box>
