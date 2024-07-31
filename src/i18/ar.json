@@ -59,8 +59,17 @@
   "user details": "تفاصيل المستخدم",
   "edit profile": "تعديل الملف الشخصى",
   "edit": "تعديل",
-  "gender":"الجنس",
-  "female":"انثى",
-  "male":"ذكر"
-
+  "gender": "الجنس",
+  "female": "انثى",
+  "male": "ذكر",
+  "add appropriate questions to the report format": "اضف الأسئلة المناسبة لشكل التقرير",
+  "report title": "عنوان التقرير",
+  "save new report": "حفظ التقرير الجديد",
+  "cancel new report": "الغاء التقرير الجديد",
+  "edit report": "تعديل التقرير",
+  "save changes": "حفظ التعديلات",
+  "cancel changes": "الغاء التعديلات",
+  "update personal information": "تحديث المعلومات الشخصية  ",
+  "change password": "تغيير كلمة المرو",
+  "role and permission management": "إدارة الأدوار والصلاحيات"
 }

@@ -29,7 +29,7 @@ const EmailInput = ({ Icon }) => {
             paddingRight: "5px",
           }}
         >
-          <img src={phoneIcon} alt="Phone Icon" />
+          <img src={Icon} alt="Phone Icon" />
         </Box>
       )}
 

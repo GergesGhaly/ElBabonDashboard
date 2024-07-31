@@ -2,15 +2,12 @@ import { Box, colors, Typography } from "@mui/material";
 import React from "react";
 import PageTitle from "../../components/PageTitle";
 import { useTranslation } from "react-i18next";
-import BasicTable from "../../components/Tables/HomePageTable";
-import ReportQuestionsTable from "../../components/Tables/ReportQuestionsTable";
-import BaseBtn from "../../components/Buttons/BaseBtn";
 import PageDescription from "../../components/PageDescription";
-import PlusIcon from "../../assets/PlusIcon.svg";
 import Footer from "../../components/Footer/Footer";
-import { Link } from "react-router-dom";
+import TextInput from "../../components/Inputs/TextInput";
+import AddNewReportTable from "../../components/Tables/AddNewReportTable";
 
-const ReportQuestions = () => {
+const AddNewReport = () => {
   const { t, i18n } = useTranslation();
 
   return (
@@ -30,7 +27,7 @@ const ReportQuestions = () => {
       }}
     >
       <PageTitle
-        Text={t("report questions")}
+        Text={t("add new report")}
         Style={{
           fontFamily: "Frutiger LT Arabic, sans-serif",
           fontWeight: 700,
@@ -40,9 +37,9 @@ const ReportQuestions = () => {
         }}
       />
       <PageDescription
-        Text={t("you can activate only one of the following forms")}
+        Text={t("add appropriate questions to the report format")}
         Style={{
-          fontFamily: "Frutiger LT Arabic, sans-serif",
+          fontFamily: "Frutiger LT Arabic",
           fontWeight: 300,
           fontSize: "16px",
           lineHeight: "25.6px",
@@ -51,29 +48,19 @@ const ReportQuestions = () => {
           margin: "0 0 32px 0",
         }}
       />
-      <Link to="/add-new-report">
-        <BaseBtn
-          Icon={PlusIcon}
-          Text={t("add new report")}
-          Style={{
-            height: "48px",
-            borderRadius: "50px",
-            padding: "8px",
-            gap: "8px",
-            backgroundColor: "#B65535",
-            color: "#FFFFFF",
-            width: { xs: "100%", sm: "344px" },
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-          }}
-        />
-      </Link>
-      <ReportQuestionsTable />
+      <Box
+        sx={{
+          maxWidth: { xs: "100%", md: "436px" },
+        }}
+      >
+        <TextInput Text={t("report title")} Label={false} />
+      </Box>
+
+      <AddNewReportTable />
+     
       <Footer />
     </Box>
   );
 };
 
-export default ReportQuestions;
+export default AddNewReport;

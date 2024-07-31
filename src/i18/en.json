@@ -61,6 +61,16 @@
   "edit profile": "Edit profile",
   "edit": "Edit",
   "gender": "Gender",
-  "female":"Female",
-  "male":"Male"
+  "female": "Female",
+  "male": "Male",
+  "add appropriate questions to the report format": "   Add appropriate questions to the report format ",
+  "report title":"Report Title",
+  "save new report":"Save new report",
+  "cancel new report":"cancel new report",
+  "edit report":"Edit Report",
+  "save changes":"Save changes",
+  "cancel changes":"Cancel changes",
+  "update personal information":"Update personal information",
+  "change password":"change password",
+  "role and permission management":"Role and Permission Management"
 }

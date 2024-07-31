@@ -16,6 +16,10 @@ import UserDetails from "../UserDetails/UserDetails";
 import Users from "../Users/Users";
 import Profile from "../EditProfile/EditProfile";
 import EditProfile from "../EditProfile/EditProfile";
+import AddNewReport from "../AddNewReport/AddNewReport";
+import EditReport from "../EditReport/EditReport";
+import SettingsPage from "../SettingsPage/SettingsPage";
+import ReportDetails from "../ReportDetails/ReportDetails";
 
 const Main = () => {
   //Toggle State Menu Handel
@@ -39,6 +43,10 @@ const Main = () => {
         <Route path="/users/:id" element={<UserDetails />} />
         <Route path="/users" element={<Users />} />
         <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/add-new-report" element={<AddNewReport />} />
+        <Route path="/edit-report" element={<EditReport />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/report-details" element={<ReportDetails />} />
         {/* Default route in case of unmatched path */}
         {/* <Route path="*" element={<Home />} /> */}
       </Routes>

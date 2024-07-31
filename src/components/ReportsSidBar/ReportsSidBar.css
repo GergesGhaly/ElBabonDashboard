@@ -1,0 +1,13 @@
+.reports-sid-bar {
+  position: absolute;
+  top: 0px;
+  display: none;
+  transition: all 0.4s ease;
+  z-index: 99;
+}
+
+.reports-sid-ba.active {
+  position: absolute;
+  display: flex;
+  z-index: 99;
+}
